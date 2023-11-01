@@ -1,0 +1,8 @@
+[build]
+target = "x86_64-os.json"
+
+[unstable]
+# Recompile `core` and `compiler_builtins` libraries for custom target
+build-std = ["core", "compiler_builtins"]
+# Enable memory related functions from `compiler_builtins` crate
+build-std-features = ["compiler-builtins-mem"]
