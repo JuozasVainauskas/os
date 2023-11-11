@@ -1,0 +1,18 @@
+name: Run tests
+run-name: Run tests
+on:
+  push: 
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out source Repo
+        uses: actions/checkout@v3
+      - name: Build test container image
+        run:  docker build -t test_image .
+      - name: Run tests in container image
+        run: docker run --rm -i test_image cargo test

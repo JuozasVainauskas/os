@@ -39,3 +39,17 @@ Hobby OS implementation in Rust
     ```bash
     qemu-system-x86_64 -drive format=raw,file=target/x86_64-os/debug/bootimage-os.bin
     ```
+
+## Tests
+
+Run tests in Docker:
+
+```bash
+docker run --rm -it $(docker build -q .) cargo test
+```
+
+Run tests on host system:
+
+```bash
+cargo test
+```
