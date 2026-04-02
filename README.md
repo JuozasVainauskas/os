@@ -25,6 +25,7 @@ Hobby OS implementation in Rust
     ```bash
     cargo install bootimage
     rustup component add rust-src --toolchain nightly-aarch64-unknown-linux-gnu
+    rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-gnu
     rustup component add llvm-tools-preview
     ```
 

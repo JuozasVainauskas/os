@@ -12,7 +12,11 @@
 use core::panic::PanicInfo;
 use os::println;
 
-#[no_mangle]
+// Disable name mangling
+// To ensure that the Rust compiler really outputs a function with the name _start.
+// Without the attribute, the compiler would generate some cryptic _ZN3blog_os4_start7hb173fedf945531caE symbol
+// extern "C" uses C calling convention
+#[unsafe(no_mangle)]
 pub extern "C" fn _start() -> ! {
     // this function is the entry point, since the linker looks for a function
     // named `_start` by default
